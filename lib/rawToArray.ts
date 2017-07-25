@@ -1,21 +1,19 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Developer: Alex Voronyansky <belirafon@gmail.com>
  * Date: 14.04.2016
  * Time: 18:31
  */
-const rawToObject_1 = require("./rawToObject");
+import rawToObject from "./rawToObject";
+
 /**
  *
  * @param buffer
  * @returns {*}
  */
-exports.default = (buffer) => {
-    const event = rawToObject_1.default(buffer);
+export default (buffer?: string) => {
+    const event = rawToObject(buffer);
     return Object.keys(event).reduce((arr, curr) => {
         arr.push([curr, event[curr]]);
         return arr;
     }, []);
 };
-//# sourceMappingURL=rawToArray.js.map

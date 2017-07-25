@@ -1,20 +1,19 @@
-"use strict";
 /**
  * Developer: Alex Voronyansky <belirafon@gmail.com>
  * Date: 14.04.2016
  * Time: 18:48
  */
-Object.defineProperty(exports, "__esModule", { value: true });
+
 /**
  *
  * @param buffer
  * @returns {*}
  */
-exports.default = (buffer) => {
+export default (buffer?: string): string => {
     if (!buffer) {
         return "";
     }
+
     return buffer.toString("utf-8")
         .replace(/^[\r\n]+|[\r\n]+$/g, "");
 };
-//# sourceMappingURL=rawToString.js.map

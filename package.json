@@ -1,5 +1,5 @@
 {
-  "name": "asterisk-ami-event-utils",
+  "name": "local-asterisk-ami-event-utils",
   "version": "2.0.2",
   "description": "Asterisk AMI Event Utils for NodeJS (ES2015)",
   "main": "./lib/index.js",
@@ -30,7 +30,11 @@
   "devDependencies": {
     "coveralls": "^2.11.9",
     "istanbul": "^0.4.3",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^8.0.16",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2"
   },
   "license": "MIT"
 }

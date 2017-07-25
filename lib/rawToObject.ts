@@ -3,24 +3,30 @@
  * Date: 14.04.2016
  * Time: 18:32
  */
+
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const rawToString_1 = require("./rawToString");
+
+import rawToString from "./rawToString";
+
 const CRLF = "\r\n";
 const ROW_SPLITTER = ":";
 const COMMAND_END = "--END COMMAND--";
+
 /**
  *
  * @param buffer
  * @returns {*}
  */
-exports.default = (buffer) => {
+export default (buffer?: string): {} => {
     if (!buffer) {
         return {};
     }
-    let rawStr = rawToString_1.default(buffer);
+
+    let rawStr = rawToString(buffer);
+
     if (!/^Event|Action:/i.test(rawStr)) {
         rawStr = trimHello(rawStr);
+
         if (!/^Response:/i.test(rawStr)) {
             return {
                 $content: rawStr,
@@ -31,31 +37,36 @@ exports.default = (buffer) => {
     }
     return rawStr.split(CRLF).reduce(rowReducer, {});
 };
+
 /**
  *
  * @param rawPackageStr
  * @returns {{}}
  */
-function respToObj(rawPackageStr) {
-    let result = {};
+function respToObj(rawPackageStr: string): {} {
+    let result: { $content?: string } = {};
     const rows = rawPackageStr.split(CRLF);
     let i = 0;
+
     for (i; i < rows.length; i++) {
         if (!/^[a-z\d_-]+?:/i.test(rows[i])) {
             break;
         }
         result = rowReducer(result, rows[i]);
     }
+
     if (i < rows.length) {
         let content = rows.slice(i).join(CRLF);
         const indexOfEnd = content.indexOf(COMMAND_END);
+
         if (~indexOfEnd) {
-            content = rawToString_1.default(content.substr(0, indexOfEnd));
+            content = rawToString(content.substr(0, indexOfEnd));
         }
         result.$content = content;
     }
     return result;
 }
+
 /**
  *
  * @param resultObj
@@ -64,11 +75,13 @@ function respToObj(rawPackageStr) {
  */
 function rowReducer(resultObj, row) {
     const pair = row.split(ROW_SPLITTER);
+
     if (pair.length > 1) {
         resultObj[pair[0].trim()] = pair.slice(1).join(ROW_SPLITTER).trim();
     }
     return resultObj;
 }
+
 /**
  *
  * @param rawStr
@@ -80,4 +93,3 @@ function trimHello(rawStr) {
     }
     return rawStr;
 }
-//# sourceMappingURL=rawToObject.js.map
