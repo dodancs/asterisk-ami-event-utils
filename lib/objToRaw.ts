@@ -16,7 +16,14 @@ export default (obj?: {}) => {
     }
 
     const rawStr = Object.keys(obj).reduce((result, currentKey) => {
-        result.push(`${currentKey}: ${obj[currentKey]}`);
+        if (Array.isArray(obj[currentKey])) {
+            obj[currentKey].forEach((val) => {
+                result.push(`${currentKey}: ${val}`);
+            });
+
+        } else {
+            result.push(`${currentKey}: ${obj[currentKey]}`);
+        }
         return result;
     }, []).join(CRLF);
 

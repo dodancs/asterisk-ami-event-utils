@@ -236,7 +236,18 @@ describe("Event utils test", () => {
             assert.equal("".repeat(2), eventUtil.fromObject());
         });
 
+        it("without event's object", () => {
+
+
+            assert.equal([
+                "Variable: a",
+                "Variable: b"
+            ].join(CRLF) + CRLF.repeat(2), eventUtil.fromObject({Variable: ["a", "b"]})
+            );
+        });
+
     });
+
 
     describe("stringToRaw", () => {
 

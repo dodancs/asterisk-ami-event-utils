@@ -192,6 +192,12 @@ describe("Event utils test", () => {
         it("without event's object", () => {
             assert.equal("".repeat(2), lib_1.default.fromObject());
         });
+        it("without event's object", () => {
+            assert.equal([
+                "Variable: a",
+                "Variable: b"
+            ].join(CRLF) + CRLF.repeat(2), lib_1.default.fromObject({ Variable: ["a", "b"] }));
+        });
     });
     describe("stringToRaw", () => {
         it("valid event's string", () => {
