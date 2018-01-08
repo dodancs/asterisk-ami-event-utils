@@ -14,6 +14,6 @@ export default (buffer?: string): string => {
         return "";
     }
 
-    return buffer.toString("utf-8")
+    return buffer.toString()
         .replace(/^[\r\n]+|[\r\n]+$/g, "");
 };
