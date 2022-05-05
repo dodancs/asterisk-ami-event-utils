@@ -73,7 +73,7 @@ function respToObj(rawPackageStr: string): {} {
  * @param row
  * @returns {*}
  */
-function rowReducer(resultObj, row) {
+function rowReducer(resultObj: any, row: string) {
     const pair = row.split(ROW_SPLITTER);
 
     if (pair.length > 1) {
@@ -87,9 +87,9 @@ function rowReducer(resultObj, row) {
  * @param rawStr
  * @returns {*}
  */
-function trimHello(rawStr) {
+function trimHello(rawStr: string): string {
     if (/^Asterisk/i.test(rawStr)) {
-        return rawStr.replace(/^Asterisk.+?\r\n/i, "", rawStr);
+        return rawStr.replace(/^Asterisk.+?\r\n/i, "");
     }
     return rawStr;
 }

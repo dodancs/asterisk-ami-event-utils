@@ -1,3 +1,12 @@
+# 2022 update
+
+This is a fork of [asterisk-ami-event-utils](https://github.com/BelirafoN/asterisk-ami-event-utils) and [this](https://github.com/dafik/asterisk-ami-event-utils)   
+Major differences:
+- the local version does not correspond with the original repo 
+- package name `@artcosoft/ami-event-utils`
+- extended typescript support
+- the lib needs to be compiled before publishing
+
 # Asterisk AMI Event Utils for NodeJS (ES2015) 
 
 [![Build Status](https://travis-ci.org/BelirafoN/asterisk-ami-event-utils.svg?branch=master)](https://travis-ci.org/BelirafoN/asterisk-ami-event-utils)

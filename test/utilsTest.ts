@@ -4,7 +4,7 @@
  * Time: 18:31
  */
 import * as assert from "assert";
-import eventUtil from "../lib";
+import eventUtil from "../src";
 
 const CRLF = "\r\n";
 

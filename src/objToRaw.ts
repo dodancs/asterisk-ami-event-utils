@@ -10,14 +10,14 @@ const CRLF = "\r\n";
  * @param obj
  * @returns {*}
  */
-export default (obj?: {}) => {
+export default (obj?: any) => {
     if (!obj) {
         return "";
     }
 
-    const rawStr = Object.keys(obj).reduce((result, currentKey) => {
+    const rawStr = Object.keys(obj).reduce((result: Array<string>, currentKey: string) => {
         if (Array.isArray(obj[currentKey])) {
-            obj[currentKey].forEach((val) => {
+            obj[currentKey].forEach((val: string) => {
                 result.push(`${currentKey}: ${val}`);
             });
 

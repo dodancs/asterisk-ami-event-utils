@@ -83,3 +83,9 @@ Icon?
 .gitignore
 .npmignore
 .travis.yml
+
+src/
+package-lock.json
+tsconfig.json
+tslint.json
+test/

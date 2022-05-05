@@ -13,6 +13,7 @@ import rawToObject from "./rawToObject";
 export default (buffer?: string) => {
     const event = rawToObject(buffer);
     return Object.keys(event).reduce((arr, curr) => {
+        // @ts-ignore
         arr.push([curr, event[curr]]);
         return arr;
     }, []);
