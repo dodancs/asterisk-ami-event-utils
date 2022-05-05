@@ -99,3 +99,6 @@ Icon?
 
 /**/*.js
 /**/*.map
+
+package-lock.json
+lib/

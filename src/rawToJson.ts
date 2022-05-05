@@ -12,6 +12,6 @@ import rawToObject from "./rawToObject";
  *
  * @param buffer
  */
-export default (buffer?: string) => {
+export default (buffer?: Buffer) => {
     return JSON.stringify(rawToObject(buffer));
 };

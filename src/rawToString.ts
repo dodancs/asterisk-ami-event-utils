@@ -9,7 +9,7 @@
  * @param buffer
  * @returns {*}
  */
-export default (buffer?: string): string => {
+export default (buffer?: Buffer | string): string => {
     if (!buffer) {
         return "";
     }

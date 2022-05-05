@@ -10,9 +10,10 @@ import rawToObject from "./rawToObject";
  * @param buffer
  * @returns {*}
  */
-export default (buffer?: string) => {
+export default (buffer?: Buffer) => {
     const event = rawToObject(buffer);
     return Object.keys(event).reduce((arr, curr) => {
+        // @ts-ignore
         arr.push([curr, event[curr]]);
         return arr;
     }, []);
