@@ -17,7 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:BelirafoN/asterisk-ami-event-utils.git"
+    "url": "https://github.com/artcosoft/asterisk-ami-event-utils.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "keywords": [
     "voip",
