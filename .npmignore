@@ -89,3 +89,6 @@ package-lock.json
 tsconfig.json
 tslint.json
 test/
+
+# VSCode
+.devcontainer
