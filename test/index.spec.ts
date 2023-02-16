@@ -3,7 +3,7 @@
  * Date: 14.04.2016
  * Time: 18:31
  */
-import * as assert from "assert";
+import { assert } from "chai";
 import eventUtil from "../src";
 
 const CRLF = "\r\n";
@@ -14,10 +14,11 @@ describe("Event utils test", () => {
         "Privilege: agent,all",
         "Queue: 592"
     ].join(CRLF);
-    let testEvent = null;
+
+    let testEvent: Buffer = Buffer.from(rawEvent);
 
     beforeEach(() => {
-        testEvent = rawEvent.substr(0);
+        testEvent = Buffer.from(rawEvent);
     });
 
     it("Check utils content", () => {
@@ -35,7 +36,7 @@ describe("Event utils test", () => {
     describe("bufferToString", () => {
 
         it("with event's raw string", () => {
-            testEvent = CRLF.repeat(5) + testEvent + CRLF.repeat(5);
+            testEvent = Buffer.from(CRLF.repeat(5) + testEvent + CRLF.repeat(5));
             assert.equal(rawEvent, eventUtil.toString(testEvent));
         });
 
@@ -56,10 +57,10 @@ describe("Event utils test", () => {
         });
 
         it("with action's raw string", () => {
-            const commandStr = [
+            const commandStr = Buffer.from([
                 "Action: command",
                 "Command: Core Show Channels"
-            ].join(CRLF) + CRLF.repeat(2);
+            ].join(CRLF) + CRLF.repeat(2));
 
             assert.deepEqual(eventUtil.toObject(commandStr), {
                 Action: "command",
@@ -68,10 +69,10 @@ describe("Event utils test", () => {
         });
 
         it("with simple response's raw string", () => {
-            const commandStr = [
+            const commandStr = Buffer.from([
                 "Response: Pong",
                 "Value: 12345"
-            ].join(CRLF) + CRLF.repeat(2);
+            ].join(CRLF) + CRLF.repeat(2));
 
             assert.deepEqual(eventUtil.toObject(commandStr), {
                 Response: "Pong",
@@ -80,11 +81,11 @@ describe("Event utils test", () => {
         });
 
         it("with hello message and response's raw string", () => {
-            const commandStr = [
+            const commandStr = Buffer.from([
                 "Asterisk version x.x",
                 "Response: Pong",
                 "Value: 12345"
-            ].join(CRLF) + CRLF.repeat(2);
+            ].join(CRLF) + CRLF.repeat(2));
 
             assert.deepEqual(eventUtil.toObject(commandStr), {
                 Response: "Pong",
@@ -93,10 +94,10 @@ describe("Event utils test", () => {
         });
 
         it("with extended response's raw string", () => {
-            const commandStr = [
+            const commandStr = Buffer.from([
                 "extended row 1",
                 "extended row 2"
-            ].join(CRLF) + CRLF.repeat(2);
+            ].join(CRLF) + CRLF.repeat(2));
 
             assert.deepEqual(eventUtil.toObject(commandStr), {
                 $content: [
@@ -108,13 +109,13 @@ describe("Event utils test", () => {
         });
 
         it("with extended response's raw string (with end command)", () => {
-            const commandStr = [
+            const commandStr = Buffer.from([
                 "Response: Follows",
                 "Privilege: Command",
                 "Channel (Context Extension Pri ) State Appl. Data",
                 "0 active channel(s)",
                 "--END COMMAND--"
-            ].join(CRLF) + CRLF.repeat(2);
+            ].join(CRLF) + CRLF.repeat(2));
 
             assert.deepEqual(eventUtil.toObject(commandStr), {
                 $content: [
@@ -131,11 +132,11 @@ describe("Event utils test", () => {
         });
 
         it("invalid property pair in event's raw string", () => {
-            testEvent = [
+            testEvent = Buffer.from([
                 "Event: AgentRingNoAnswer",
                 "Privilege agent,all",
                 "Queue: 592"
-            ].join(CRLF) + CRLF.repeat(2);
+            ].join(CRLF) + CRLF.repeat(2));
 
             assert.deepEqual(eventUtil.toObject(testEvent), {
                 Event: "AgentRingNoAnswer",
@@ -144,10 +145,10 @@ describe("Event utils test", () => {
         });
 
         it("with empty field", () => {
-            testEvent = [
+            testEvent = Buffer.from([
                 "Event: AgentRingNoAnswer",
                 "Queue:"
-            ].join(CRLF) + CRLF.repeat(2);
+            ].join(CRLF) + CRLF.repeat(2));
 
             assert.deepEqual(eventUtil.toObject(testEvent), {
                 Event: "AgentRingNoAnswer",
@@ -242,7 +243,7 @@ describe("Event utils test", () => {
             assert.equal([
                 "Variable: a",
                 "Variable: b"
-            ].join(CRLF) + CRLF.repeat(2), eventUtil.fromObject({Variable: ["a", "b"]})
+            ].join(CRLF) + CRLF.repeat(2), eventUtil.fromObject({ Variable: ["a", "b"] })
             );
         });
 

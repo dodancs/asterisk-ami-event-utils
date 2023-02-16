@@ -44,7 +44,7 @@ export default (buffer?: Buffer): {} => {
  * @returns {{}}
  */
 function respToObj(rawPackageStr: string): {} {
-    let result: { $content?: string } = {};
+    let result: { $content?: string; } = {};
     const rows = rawPackageStr.split(CRLF);
     let i = 0;
 
