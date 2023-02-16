@@ -1,18 +1,9 @@
-# 2022 update
+# Asterisk AMI Event Utils for NodeJS \w TypeScript support
 
-This is a fork of [asterisk-ami-event-utils](https://github.com/BelirafoN/asterisk-ami-event-utils) and [this](https://github.com/dafik/asterisk-ami-event-utils)   
-Major differences:
-- the local version does not correspond with the original repo 
-- package name `@artcosoft/ami-event-utils`
-- extended typescript support
-- the lib needs to be compiled before publishing
+[![Coverage Status](https://coveralls.io/repos/dodancs/asterisk-ami-event-utils/badge.svg)](https://coveralls.io/github/dodancs/asterisk-ami-event-utils)
+[![npm version](https://badge.fury.io/js/@dodancs%2Fami-event-utils.svg)](https://badge.fury.io/js/@dodancs%2Fami-event-utils)
 
-# Asterisk AMI Event Utils for NodeJS (ES2015) 
-
-[![Build Status](https://travis-ci.org/BelirafoN/asterisk-ami-event-utils.svg?branch=master)](https://travis-ci.org/BelirafoN/asterisk-ami-event-utils)
-[![Coverage Status](https://coveralls.io/repos/BelirafoN/asterisk-ami-event-utils/badge.svg)](https://coveralls.io/r/BelirafoN/asterisk-ami-event-utils)
-[![Code Climate](https://codeclimate.com/github/BelirafoN/asterisk-ami-event-utils/badges/gpa.svg)](https://codeclimate.com/github/BelirafoN/asterisk-ami-event-utils)
-[![npm version](https://badge.fury.io/js/asterisk-ami-event-utils.svg)](https://badge.fury.io/js/asterisk-ami-event-utils)
+Fork of [asterisk-ami-event-utils](https://github.com/BelirafoN/asterisk-ami-event-utils) and [dafik/asterisk-ami-event-utils](https://github.com/dafik/asterisk-ami-event-utils)
 
 Some service functions for parse\stringify raw data packages (events, actions, responses, extended responses) 
 from Asterisk AMI's socket. 
@@ -60,7 +51,7 @@ For examples, please, see tests `./test/*`.
 Tests require [Mocha](https://mochajs.org/). 
 
 ```bash 
-mocha ./tests
+mocha ./test
 ``` 
 
 or with `npm` 
