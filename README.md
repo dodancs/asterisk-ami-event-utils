@@ -1,7 +1,7 @@
 # Asterisk AMI Event Utils for NodeJS \w TypeScript support
 
 [![Coverage Status](https://coveralls.io/repos/dodancs/asterisk-ami-event-utils/badge.svg)](https://coveralls.io/github/dodancs/asterisk-ami-event-utils)
-[![npm version](https://badge.fury.io/js/@dodancs%2Fami-event-utils.svg)](https://badge.fury.io/js/@dodancs%2Fami-event-utils)
+[![npm version](https://badge.fury.io/js/@dodancs%2Fasterisk-ami-event-utils.svg)](https://badge.fury.io/js/@dodancs%2Fasterisk-ami-event-utils)
 
 Fork of [asterisk-ami-event-utils](https://github.com/BelirafoN/asterisk-ami-event-utils) and [dafik/asterisk-ami-event-utils](https://github.com/dafik/asterisk-ami-event-utils)
 
@@ -12,7 +12,7 @@ This library is a part of **[Asterisk's AMI Client](https://www.npmjs.com/packag
 ### Install 
 
 ```bash
-$ npm i asterisk-ami-event-utils
+$ npm i @dodancs/asterisk-ami-event-utils
 ```
 
 ### NodeJS versions 

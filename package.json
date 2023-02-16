@@ -1,5 +1,5 @@
 {
-  "name": "@dodancs/ami-event-utils",
+  "name": "@dodancs/asterisk-ami-event-utils",
   "version": "0.1.2",
   "description": "Asterisk AMI Event Utils for NodeJS \\w TypeScript support",
   "main": "lib/index.js",
