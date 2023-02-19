@@ -10,7 +10,7 @@ const CRLF = "\r\n";
  * @param obj
  * @returns {*}
  */
-export default (obj?: Record<string, string>): string => {
+export default (obj?: Record<string, string | undefined | null>): string => {
     if (!obj) {
         return "";
     }
